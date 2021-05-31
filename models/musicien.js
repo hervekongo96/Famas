@@ -24,7 +24,7 @@ let MusicienSchema = new Schema({
     },
     email : {
         type: String,
-        required : true
+        required : false
     },
     nationalite : {
         type: String,

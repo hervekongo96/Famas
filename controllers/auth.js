@@ -40,7 +40,8 @@ exports.soumettre = (req, res) =>{
                 res.redirect('/affiche');
             }
             else{
-                console.log("erreur d'insertion:" +err);
+               console.log("erreur d'insertion:" +err);
+               
             }
         });
         console.log(identite);
