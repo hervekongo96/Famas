@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style1.css">
+        <link rel="stylesheet" href="/css/bootstrap1.min.css">
+        <title>Famas-Enregistrement</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark py-3">
+            <div class="container justify-content-between">
+                <!-- Left elements -->
+                <div class="d-flex">
+                    <!-- Brand -->
+                    <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+                        <span class="text-center" style="color: aliceblue;">
+                            FAMAS  
+                        </span>
+                    </a>
+                </div>
+
+                <ul class="navbar-nav flex-row">
+                    <li class="nav-item dropdown me-3 me-lg-1">
+                        <a class="nav-link " href="/acceuil" id="navbarDropdownMenuLink"
+                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                           
+                            <i class="bi bi-cart"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger" style="color: aliceblue";>Accueil</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown me-3 me-lg-1">
+                        <a class="nav-link " href="" id="navbarDropdownMenuLink"
+                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                           
+                            <i class="bi bi-cart"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger" style="color: aliceblue";>S'enregistrez</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown me-3 me-lg-1">
+                        <a class="nav-link " href="#" id="navbarDropdownMenuLink"
+                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                           
+                            <i class="bi bi-cart"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger" style="color: aliceblue";>Historique</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Right elements -->
+            </div>
+        </nav>
+            
+        <div class="container mt-4">
+            <div class="row"></div>
+            <div class="col-md-auto lg-6 sm-auto col-xs-auto">
+                <div class="card" id="card">
+                    <div class="card-header" id="cardheader"></div>
+                    <div class="card-body">
+                        <h2 class="text-primary">
+                            Projet-FAMAS 
+                        </h2>
+
+                        {{#if message}}
+                            <h3 class="alert alert-danger mt-4">{{message}}</h3>
+                        {{/if}}
+                       
+                        <h6>
+                             Identification de musiciens
+                        </h6>
+                        <span class="text-danger">
+                            * Information Obligatoire
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form role="form" autocomplete="off" action="/auth/soumettre" method="POST" >
+            <div class="container mt-3">
+                <div class="col-md-auto col-lg-auto col-sm-auto col-xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Nom <small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="nom"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto col-lg-auto col-sm-auto col-xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="postnom">Post-nom <small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="postnom"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 col-sm-auto col-xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="prenom">Prenom <small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="prenom"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="adresse">Adresse <small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="adresse"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="telephone">Téléphone <small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="telephone"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input id="form-control" autocomplete="off" type="email" name="email"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="nationalite">Nationalité <small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="nationalite"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="lieunaissance">Lieu de naissance <small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="lieudenaissance"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-auto sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="datenaissance">Date de naissance <small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="datenaissance"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-auto sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <tr>
+                                <td>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Sexe 
+                                            <small style="color: red;">
+                                                *
+                                            </small>
+                                    </label>
+                                </td>
+                                <br>
+                                <td>
+                                    <label for="m">Masculin</small></label>
+                                    <input type ="radio"  name="sexe"  value="masculin" /> 
+                                </td>
+                                 <td>
+                                      <label for="">    </small></label> 
+                                 </td>
+                                 <td>
+                                      <label for="">    </small></label> 
+                                 </td>
+                                 <td>
+                                      <label for="">    </small></label> 
+                                 </td>
+                                <td>
+                                    <label for="f">Feminin</small></label> 
+                                    <input type ="radio"  name="sexe"  value="feminin"/>
+                                </td>
+                            </tr> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="nominst">Nom Instrument<small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="nominst"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="numIns">Numero Instrument<small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="numinst"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="paroisse">Paroisse ou sous-paroisse<small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="paroisse"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="province">Province<small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="province"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-6 sm-auto xs-auto">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ville">Ville<small style="color: red;">*</small></label>
+                                <input id="form-control" autocomplete="off" type="text" name="ville"  value="" class="form-control" placeholder="Votre réponse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div class="col-md-auto lg-auto sm-auto col-xs-auto">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-sm btn-success">Envoyer</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </body>
+</html>
