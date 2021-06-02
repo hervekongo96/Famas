@@ -13,30 +13,47 @@ exports.soumettre = async (req, res) =>{
     }
     else{
 
-        insertRecord(req, res);  
+        await insertRecord(req, res);  
        
     }
     
     function insertRecord(req, res){
-        
-        const newMusicien = new Musicien({nom,postnom,prenom,adresse,telephone,email,nationalite,lieudenaissance,datenaissance,nominst,numinst,paroisse,province,ville});
-        newMusicien.save()
-        .then(data=>{
-            if(data.lenght > 0){
 
-                response.json({
-                    message: "Sauvegarde réussi! La personne est enregistrée dans la base de données",
-                    data: data
-                })           
-            }else{
-                res.redirect('/affiche');
-            }
-        })
-        .catch(error =>{
-            res.status(500).send({
-                message: error.message || "Une erreur s'est produite lors du sauvegarde"
-            })  
-        })
+        if (musicien.datenaissance == musicien.datenaissance && musicien.telephone == musicien.telephone ) {
+
+			Musicien.findOne({datenaissance:musicien.datenaissance},function(err,data){
+				if(!data){
+					var c;
+					Musicien.findOne({},function(err,data){
+
+						if (data) {
+							console.log("if");
+							c = data.unique_id + 1;
+						}else{
+							c=1;
+						}
+
+						const newMusicien = new Musicien({nom,postnom,prenom,adresse,telephone,email,nationalite,lieudenaissance,datenaissance,nominst,numinst,paroisse,province,ville});
+
+						newMusicien.save(function(err, musiciens){
+							if(err)
+								console.log(err);
+							else
+								console.log('Success'); 
+						});
+
+					}).sort({_id: -1}).limit(1);
+					res.redirect('/affiche');
+				}else{
+					//.send({"Success":"Email is already used."});
+                    return res.status(400).render('enregistrement', {
+                        message: "vous étiez déjà enregistrer! Ndeko o mikomisaki déjà"
+                    });
+				}
+
+			});
+		}       
     } 
+
 }
 

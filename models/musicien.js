@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let MusicienSchema = new Schema({
+    unique_id: {
+    type : Number,
+    required : false
+    },
     nom : {
         type: String,
         required : true
