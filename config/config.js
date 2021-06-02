@@ -1,16 +1,16 @@
 module.exports = {
     musicien : {
-        dbURL : 'mongodb+srv://Masambukidi:*96herve*@cluster0.cnacw.mongodb.net/Famas?retryWrites=true&w=majorityy',
+        dbURL : 'mongodb+srv://Masambukidi:*96herve*@cluster0.cnacw.mongodb.net/Famas?retryWrites=true&w=majority',
         jwtSecret : 'devjwtsecret',
         saltRound : '',
     },
-    développement :{
-        dbURL : 'mongodb+srv://Masambukidi:*96herve*@cluster0.cnacw.mongodb.net/Famas?retryWrites=true&w=majorityy',
+    development :{
+        dbURL : 'mongodb+srv://Masambukidi:*96herve*@cluster0.cnacw.mongodb.net/Famas?retryWrites=true&w=majority',
         jwtSecret : 'devjwtsecret',
         saltRound : '', 
     },
     test : {
-        dbURL : 'mongodb+srv://Masambukidi:*96herve*@cluster0.cnacw.mongodb.net/Famas?retryWrites=true&w=majorityy',
+        dbURL : 'mongodb+srv://Masambukidi:*96herve*@cluster0.cnacw.mongodb.net/Famas?retryWrites=true&w=majority',
         jwtSecret : 'devjwtsecret',
         saltRound : '',
     },

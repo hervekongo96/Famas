@@ -3,7 +3,26 @@ const path = require('path');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const bodyparser = require('body-parser');
-const connectDB = require('./database/connection');
+const configToUse = require ('./config/keys');
+const mongoose = require('mongoose');
+const PORT = process.env.PORT || 4000;
+const HOST = '0.0.0.0'; 
+
+mongoose.connect(
+    configToUse.dbURL,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex : true,
+    },
+    (error) => {
+      if (!error) {
+        console.log(`La connection à la base des données a reussie`);
+      } else {
+        console.log(`La connection à la base des données a échouée: ${error}`);
+      }
+    }
+  );
 
 const app = express()
 
@@ -23,9 +42,7 @@ app.use(bodyparser.json());
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 
-connectDB();
 
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, ()=>{
+app.listen(PORT, HOST, ()=>{
     console.log(`serveur allumer au port ${PORT}`);
 })
