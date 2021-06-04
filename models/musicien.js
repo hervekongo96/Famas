@@ -18,6 +18,14 @@ let MusicienSchema = new Schema({
         type: String,
         required : true
     },
+    pseudo : {
+        type: String,
+        required : false
+    },
+    fonction : {
+        type: String,
+        required : false
+    },
     adresse : {
         type: String,
         required : true
@@ -43,10 +51,6 @@ let MusicienSchema = new Schema({
         required : true
     },
     nominst : {
-        type: String,
-        required : true
-    },
-    numinst : {
         type: String,
         required : true
     },
