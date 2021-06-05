@@ -62,11 +62,6 @@ let MusicienSchema = new Schema({
         type: String,
         required : true
     },
-    ville : {
-        type: String,
-        required : true
-    }
-
 });
 
 const Musicien = module.exports = mongoose.model('Musicien', MusicienSchema);

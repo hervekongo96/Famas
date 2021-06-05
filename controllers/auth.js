@@ -4,7 +4,7 @@ const Musicien = require('../models/musicien');
 //envoi du fomulaire
 exports.soumettre = async (req, res) =>{
     
-    const musicien = {nom,postnom,prenom,pseudo,fonction,adresse,telephone,email,nationalite,lieudenaissance,datenaissance,sexe,nominst,paroisse,province,ville} = req.body;
+    const musicien = {nom,postnom,prenom,pseudo,fonction,adresse,telephone,email,nationalite,lieudenaissance,datenaissance,sexe,nominst,paroisse,province} = req.body;
     
     if(!nom || !postnom|| !prenom|| !adresse|| !telephone|| !nationalite|| !lieudenaissance || !datenaissance || !sexe || !nominst || !paroisse || !province ){
         return res.status(400).render('enregistrement', {
@@ -12,9 +12,7 @@ exports.soumettre = async (req, res) =>{
         });
     }
     else{
-
-        await insertRecord(req, res);   
-       
+        await insertRecord(req, res);    
     }
     
     function insertRecord(req, res){
@@ -33,7 +31,7 @@ exports.soumettre = async (req, res) =>{
 							c=1;
 						}
 
-						const newMusicien = new Musicien({nom,postnom,prenom,pseudo,fonction,adresse,telephone,email,nationalite,lieudenaissance,datenaissance,nominst,paroisse,province,ville});
+						const newMusicien = new Musicien({nom,postnom,prenom,pseudo,fonction,adresse,telephone,email,nationalite,lieudenaissance,datenaissance,nominst,paroisse,province});
 
 						newMusicien.save(function(err, musiciens){
 							if(err)

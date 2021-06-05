@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const Musicien = require('../models/musicien');
 
 
 router.get('/registrer', (req, res)=>{
@@ -28,6 +29,27 @@ router.get('/acceuil', (req, res)=>{
 router.get('/presentation', (req, res)=>{
     res.render('presentation')
 });
+
+    router.get('/liste', async(req, res) => {
+        console.log("Get all Musiciens", req.params);
+        await Musicien.find()
+        .then((data) => {
+            if(data) {
+                console.log(data);
+                //response.status(200).json(data)
+                res.render('list',{
+                    musicien : data
+                } );
+            }
+        })
+        .catch((error) => {
+            response.status(500).json({
+                message: error.message || "Une erreur est survenue lors de la demande."
+            })
+        })
+    })
+    
+
 
 module.exports = router;
 
